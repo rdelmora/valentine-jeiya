@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day, Dek Jeyii!</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: repeating-linear-gradient(
+                90deg,
+                #ad8fc3 0px,
+                #ad8fc3 20px,
+                #ffffff 20px,
+                #ffffff 40px
+            ),
+            repeating-linear-gradient(
+                0deg,
+                #ad8fc3 0px,
+                #ad8fc3 20px,
+                #ffffff 20px,
+                #ffffff 40px
+            );
+            background-blend-mode: multiply;
+            color: #fff;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .kuromi-icon {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background-image: url('https://i.imgur.com/L6Lbf4D.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .mail-container {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .mail {
+            width: 400px;
+            height: 250px;
+            background: #fff;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .mail::before {
+            content: '';
+            position: absolute;
+            top: -130px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 200px solid transparent;
+            border-right: 200px solid transparent;
+            border-bottom: 130px solid #fff;
+        }
+        .press-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+        .paper {
+            display: none;
+            position: absolute;
+            width: 420px;
+            min-height: 400px;
+            background: #fff;
+            background-image: url('squared-paper-texture.jpg'); /* Soft texture */
+            background-size: cover;
+            background-blend-mode: overlay;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%) translateY(0);
+            border-radius: 10px;
+            padding: 30px;
+           text-align: center;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+         animation: slideUp 1s ease-in-out;
+         overflow: hidden;
+        }
+        @keyframes slideUp {
+            0% { transform: translateX(-50%) translateY(50px); opacity: 0; }
+            100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+        }
+        .container {
+            max-width: 800px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            color: #333;
+            position: relative;
+            z-index: 10;
+        }
+        .buttons {
+            margin-top: 20px;
+            display: none;
+        }
+        button {
+            padding: 20px 40px;
+            font-size: 24px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+        #yesBtn {
+            background: #ff4d4d;
+            color: white;
+            box-shadow: 0 4px 10px rgba(255, 77, 77, 0.5);
+        }
+        #noBtn {
+            background: #ccc;
+            color: black;
+        }
+        #yesBtn:hover {
+            background: #e60000;
+        }
+        #noBtn:hover {
+            background: #999;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            for (let i = 0; i < 10; i++) {
+                let kuromi = document.createElement("div");
+                kuromi.classList.add("kuromi-icon");
+                kuromi.style.top = Math.random() * 90 + "vh";
+                kuromi.style.left = Math.random() * 90 + "vw";
+                document.body.appendChild(kuromi);
+            }
+        });
+
+        function openMail() {
+            document.querySelector(".paper").style.display = "block";
+            document.querySelector(".buttons").style.display = "block";
+            document.querySelector(".press-text").style.display = "none";
+        }
+    </script>
+    
+    <div class="container">
+        <div class="mail-container" onclick="openMail()">
+            <div class="mail"></div>
+            <div class="press-text">Press me</div>
+        </div>
+        <div class="paper">
+            <p>Happy Valentine's Day, Dek Jeyii!! 🎉💖</p>
+            <p>I hope you know that no matter what day it is, even if it's not valentine, you are always loved and worth.</p>
+            <p>I made this website earlier before you gave me your address, I was too afraid that I couldn't give you something on this special day.</p>
+            <p>I love you Dek Jeyii, I'm really grateful that I got the chance to know you better, I'm so glad we met on Mingle. I love talking with you, playing with you, have an interaction with you, I enjoyed every single second I spent with you, and I'm looking forward for more. You're so worth it to fight for, will you be my girlfriend, my valentine, and eventually be my wife, Dek Jeyii? 💍</p>
+        </div>
+        <div class="buttons">
+            <button id="yesBtn" onclick="nextPage()">Yes</button>
+            <button id="noBtn" onclick="shrinkNo()">No</button>
+        </div>
+    </div>
+
+    <script>
+        let yesBtn = document.getElementById("yesBtn");
+        let noBtn = document.getElementById("noBtn");
+        let size = 20;
+        let noClickCount = 0;
+
+        function shrinkNo() {
+            noClickCount++;
+            size += 10;
+            yesBtn.style.fontSize = `${size}px`;
+            yesBtn.style.padding = `${size / 2}px ${size}px`;
+            if (noClickCount >= 4) {
+                noBtn.style.display = "none";
+            } else {
+                noBtn.style.fontSize = `${Math.max(10, size - 20)}px`;
+                noBtn.style.padding = `${Math.max(5, (size - 20) / 2)}px ${Math.max(10, (size - 20))}px`;
+            }
+        }
+
+        function nextPage() {
+            window.location.href = "flower.html";
+        }
+    </script>
+</body>
+</html>

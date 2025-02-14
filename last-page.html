@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Message</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d8b3e6;
+            background-image: radial-gradient(circle, #c78ae6 10%, transparent 10%), 
+                              radial-gradient(circle, transparent 10%, #b576d9 20%, transparent 20%), 
+                              radial-gradient(circle, #c78ae6 10%, transparent 10%);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px, 50px 50px;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 90%;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 1.5s forwards;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .heart {
+            font-size: 40px;
+            color: red;
+            animation: heartbeat 1.5s infinite;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        video {
+            width: 100%;
+            margin-top: 15px;
+            border-radius: 10px;
+        }
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        .btn {
+            padding: 10px 15px;
+            background-color: #8f5ea2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: #b35de0;
+        }
+        .message {
+            display: none;
+            margin-top: 15px;
+            font-size: 18px;
+            color: #d6336c;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heart">❤️</div>
+        <h2>PARDON MY GOOFY AHH VOICE</h2>
+        <p>Idk what this is but yeah hehe, I wanted something special but I can't really sing, Anyways I hope you enjoyed it sayang.</p>
+        <p><strong>Tentang Bunga - Romantic Echoes</strong></p>
+        <video id="loveVideo" controls>
+            <source src="tentang-bunga.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <p id="loveMessage" class="message">I love you so much, Dek Jeyii! 💖</p>
+        <div class="btn-group">
+            <a href="flower.html" class="btn">Back</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("loveVideo").addEventListener("ended", function() {
+            document.getElementById("loveMessage").style.display = "block";
+        });
+    </script>
+</body>
+</html>
